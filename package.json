@@ -13,9 +13,19 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "@emotion/core": "^10.0.21",
+    "@mdx-js/react": "^1.5.1",
+    "dotenv": "^8.1.0",
     "gatsby": "^2.15.35",
+    "gatsby-plugin-react-helmet": "^3.1.11",
+    "gatsby-plugin-theme-ui": "^0.2.43",
+    "gatsby-source-datocms": "^2.1.18",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "react-helmet": "^5.2.1",
+    "theme-ui": "^0.2.44",
+    "typeface-open-sans": "0.0.75",
+    "typeface-righteous": "0.0.72"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
