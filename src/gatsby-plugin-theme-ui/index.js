@@ -7,6 +7,7 @@ export default {
     background: 'rgba(17, 17, 17, 0.95)',
     backgroundS: 'rgba(51, 51, 51, 0.95)',
     header: 'rgba(0, 0, 0, 0.5)',
+    footer: 'rgba(0, 0, 0, 0.95)',
     modes: {
       green: { primary: '#0f0' },
       babyBlue: { primary: '#31afff' }
