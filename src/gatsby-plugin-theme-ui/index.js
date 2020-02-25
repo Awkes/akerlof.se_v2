@@ -1,11 +1,12 @@
 export default {
-  breakpoints: [0, 768, 992],
+  breakpoints: ['768px', '996px'],
   colors: {
     text: '#fff',
     textS: '#aaa',
     primary: '#f0f',
     background: 'rgba(17, 17, 17, 0.95)',
     backgroundS: 'rgba(51, 51, 51, 0.95)',
+    dark: '#000',
     header: 'rgba(0, 0, 0, 0.5)',
     footer: 'rgba(0, 0, 0, 0.95)',
     modes: {
@@ -30,6 +31,7 @@ export default {
     lightSmallShadow: '0 1px 1px primary',
   },
   borders: {
-    $darkBorder: '1px solid #555'
-  }
+    darkBorder: '1px solid #555',
+  },
+  space: [0, '0.25em', '0.5em', '1em', '2em', '3em']
 }

@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import PropTypes from 'prop-types'
 
-export default({children, blank=false}) => {
-  const styles = {
-    section: blank => {
-      const conditionalStyles = blank 
+const Section = ({ children, blank = false }) => (
+  <section sx={
+    blank => {
+      const conditionalStyles = blank
         ? { backgroundColor: 'transparent' }
         : {
           '&:nth-of-type(odd)': { backgroundColor: 'background' },
@@ -17,21 +18,28 @@ export default({children, blank=false}) => {
             marginTop: '1em'
           }
         }
-        console.log(conditionalStyles)
-      return({
+      ;
+      return ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         minHeight: '100vh',
-        p: '5em 1em 0 1em',
+        p: ['5em 1em 0 1em', '7em 3em 3em 3em'],
         overflow: 'hidden',
         ...conditionalStyles
       });
     }
-  }
-  return (
-    <section sx={styles.section(blank)}>
-      {children}
-    </section>
-  );
+  }>
+    {children}
+  </section>
+);
+
+export default Section;
+
+Section.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  blank: PropTypes.bool
 }
