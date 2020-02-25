@@ -1,29 +1,40 @@
-import React from "react";
-import {Link} from "gatsby";
-import Icons from "../components/Icons";
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+import { graphql, useStaticQuery } from 'gatsby';
+import NavLink from './NavLink';
 
-const NavLink = ({url, children}) => (
-    <li key={url}>
-      <Link 
-        to={url} 
-        // className={styles.navLink}
+const Nav = () => {
+  const { wordpressWpApiMenusMenusItems: { items } } = useStaticQuery(graphql`
+    query {
+      wordpressWpApiMenusMenusItems(name: {eq: "Navigation"}) {
+        items {
+          title
+          url
+          wordpress_id
+        }
+      }
+    }
+  `);
+
+  return (
+    <nav>
+      <ul
+        sx={{
+          listStyleType: 'none',
+          width: '100%',
+          margin: 0,
+          padding: 0,
+          textTransform: 'uppercase',
+        }}
       >
-        {children}
-      </Link>
-    </li>
-);
+        {items.map(({ title, url, wordpress_id }) =>
+          <li key={wordpress_id}>
+            <NavLink url={url}>{title}</NavLink>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+}
 
-export default({onClick}) => (
-  <nav onClick={onClick}>
-    <ul 
-      // className={styles.navList}
-    >
-      <NavLink url="/#about">Andreas</NavLink>
-      <NavLink url="/#skills">Skills</NavLink>
-      <NavLink url="/#projects">Projects</NavLink>
-      <NavLink url="/#contact">Contact</NavLink>
-      <NavLink url="/blog">Blog</NavLink>
-    </ul>
-    <Icons />
-  </nav>
-);
+export default Nav;
