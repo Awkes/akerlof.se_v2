@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import Section from '../components/Section';
 
 export default ({
-  data: { wordpressPage: { featured_media: { source_url: bgImg }}}
+  data: { wordpressWpSite: { acf: { background_image: { source_url: bgImg } }}}
 }) => (
     <>
       <Global styles={{
@@ -18,7 +18,7 @@ export default ({
         }
       }} />
       <Layout>
-        <Section blank="true">
+        <Section blank={true}>
           INNEHÅLL!
         </Section>
         <Section>
@@ -33,9 +33,11 @@ export default ({
 
 export const query = graphql`
   query {
-    wordpressPage(slug: {eq: "index"}) {
-      featured_media {
-        source_url
+    wordpressWpSite(title: {eq: "Settings"}) {
+      acf {
+        background_image {
+          source_url
+        }
       }
     }
   }
