@@ -4,13 +4,19 @@ import { graphql, useStaticQuery } from 'gatsby';
 import NavLink from './NavLink';
 
 const Nav = () => {
-  const { wordpressWpApiMenusMenusItems: { items } } = useStaticQuery(graphql`
+  const { 
+    wordpressWpSite: { 
+      acf: { about, blog, contact, experience, projects } 
+    } 
+  } = useStaticQuery(graphql`
     query {
-      wordpressWpApiMenusMenusItems(name: {eq: "Navigation"}) {
-        items {
-          title
-          url
-          wordpress_id
+      wordpressWpSite(title: {eq: "Menu labels"}) {
+        acf {
+          about
+          experience
+          projects
+          contact
+          blog
         }
       }
     }
@@ -27,11 +33,11 @@ const Nav = () => {
           textTransform: 'uppercase',
         }}
       >
-        {items.map(({ title, url, wordpress_id }) =>
-          <li key={wordpress_id}>
-            <NavLink url={url}>{title}</NavLink>
-          </li>
-        )}
+        <li><NavLink url="/#about">{about}</NavLink></li>
+        <li><NavLink url="/#experience">{experience}</NavLink></li>
+        <li><NavLink url="/#projects">{projects}</NavLink></li>
+        <li><NavLink url="/#contact">{contact}</NavLink></li>
+        <li><NavLink url="/#blog">{blog}</NavLink></li>
       </ul>
     </nav>
   );
