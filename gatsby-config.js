@@ -1,3 +1,5 @@
+require("dotenv").config({ path: "./.env" })
+
 module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -5,8 +7,8 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `akerlof.esy.es`,
-        protocol: `http`,
+        baseUrl: process.env.GATSBY_WP_BASE_URL,
+        protocol: 'http',
         hostingWPCOM: false,
         useACF: false,
       }
