@@ -2,9 +2,9 @@
 import { jsx } from "theme-ui";
 import PropTypes from 'prop-types'
 
-const Section = ({ children, blank = false }) => (
+const Section = ({ children, blank }) => (
   <section sx={
-    blank => {
+    () => {
       const conditionalStyles = blank
         ? { backgroundColor: 'transparent' }
         : {
@@ -42,4 +42,8 @@ Section.propTypes = {
     PropTypes.node
   ]).isRequired,
   blank: PropTypes.bool
+}
+
+Section.defaultProps = {
+  blank: false,
 }
