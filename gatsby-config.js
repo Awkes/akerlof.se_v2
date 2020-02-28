@@ -1,16 +1,17 @@
-require("dotenv").config({path: '.env'});
+require("dotenv").config({ path: "./.env" })
 
 module.exports = {
   plugins: [
-    {
-      resolve: `gatsby-source-datocms`,
-      options: {
-        apiToken: process.env.DATOCMS_TOKEN,
-        previewMode: false,
-        disableLiveReload: false,
-      }
-    },
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-theme-ui`
+    `gatsby-plugin-theme-ui`,
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: process.env.GATSBY_WP_BASE_URL,
+        protocol: 'http',
+        hostingWPCOM: false,
+        useACF: false,
+      }
+    }
   ]
 }

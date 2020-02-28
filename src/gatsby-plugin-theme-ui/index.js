@@ -1,15 +1,18 @@
 export default {
-  breakpoints: [0, 768, 992],
+  breakpoints: ['800px', '996px'],
   colors: {
     text: '#fff',
     textS: '#aaa',
     primary: '#f0f',
     background: 'rgba(17, 17, 17, 0.95)',
     backgroundS: 'rgba(51, 51, 51, 0.95)',
+    dark: '#000',
     header: 'rgba(0, 0, 0, 0.5)',
+    footer: 'rgba(0, 0, 0, 0.95)',
     modes: {
       green: { primary: '#0f0' },
-      babyBlue: { primary: '#31afff' }
+      babyBlue: { primary: '#31afff' },
+      orange: { primary: '#ff6f00' },
     }
   },
   fonts: {
@@ -29,6 +32,7 @@ export default {
     lightSmallShadow: '0 1px 1px primary',
   },
   borders: {
-    $darkBorder: '1px solid #555'
-  }
+    darkBorder: '1px solid #555',
+  },
+  space: [0, '0.25em', '0.5em', '1em', '2em', '3em']
 }

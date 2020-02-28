@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "akerlof.se",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
-  "version": "0.1.0",
+  "description": "Andreas Åkerlöf - Frontend Developer",
+  "version": "2.0.1",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -19,10 +19,12 @@
     "gatsby": "^2.15.35",
     "gatsby-plugin-react-helmet": "^3.1.11",
     "gatsby-plugin-theme-ui": "^0.2.43",
-    "gatsby-source-datocms": "^2.1.18",
+    "gatsby-source-wordpress": "^3.1.62",
+    "html-react-parser": "^0.10.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
+    "svg-inline-react": "^3.2.0",
     "theme-ui": "^0.2.44",
     "typeface-open-sans": "0.0.75",
     "typeface-righteous": "0.0.72"
