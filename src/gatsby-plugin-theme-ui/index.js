@@ -1,5 +1,5 @@
 export default {
-  breakpoints: ['768px', '996px'],
+  breakpoints: ['800px', '996px'],
   colors: {
     text: '#fff',
     textS: '#aaa',
@@ -11,7 +11,8 @@ export default {
     footer: 'rgba(0, 0, 0, 0.95)',
     modes: {
       green: { primary: '#0f0' },
-      babyBlue: { primary: '#31afff' }
+      babyBlue: { primary: '#31afff' },
+      orange: { primary: '#ff6f00' },
     }
   },
   fonts: {

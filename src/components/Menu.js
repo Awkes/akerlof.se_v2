@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import Nav from "./Nav";
+import Nav from './Nav';
+import ColorMode from './ColorMode';
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
@@ -22,7 +23,7 @@ const Menu = () => {
     height: '3px',
     borderRadius: '10px',
     backgroundColor: 'primary',
-    transformOrigin: '0% 50%',
+    transformOrigin: '100% 50%',
     transition: 'ease-in-out 0.2s',
     boxShadow: open ? 'none' : 'darkSmallShadow',
     width: open ? '0.975em' : 'initial',
@@ -38,53 +39,6 @@ const Menu = () => {
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
-        'nav': {
-          display: 'flex',
-          flexDirection: ['column', 'row'],
-          alignItems: ['flex-end', 'center'],
-          justifyContent: 'space-between',
-          position: ['absolute', 'static'],
-          height: ['100vh', 'initial'],
-          width: ['75vw', 'initial'],
-          margin: [0, 2],
-          top: '0',
-          right: '-75vw',
-          paddingTop: [5, 0],
-          paddingX: [3, 0],
-          paddingBottom: [3, 0],
-          fontSize: 2,
-          textAlign: ['right', 'center'],
-          backgroundColor: ['dark', 'transparent'],
-          borderLeft: [t => `5px solid ${t.colors.primary}`, 0],
-          transform: [open ? 'translate(-75vw)' : 'translate(0vw)', 'none'],
-          boxShadow: [open ? '-1px 0 5px #000' : 'none', 'none'],
-          transition: 'ease-in-out 0.2s',
-          'ul': { margin: ['initial', 0] },
-          'li': {
-            display: ['initial', 'inline-block'],
-          },
-          'li > a': {
-            textDecoration: 'none',
-            marginX: ['initial', 1, 2],
-            '&::after, &::before': {
-              display: 'block',
-              content: '""',
-              height: '2px',
-              width: '100%',
-              opacity: '0',
-              transform: 'scaleX(0)',
-              transformOrigin: ['left', 'center'],
-              transition: 'ease-out 0.5s',
-              backgroundImage: t => [
-                `linear-gradient(to right, transparent, ${t.colors.primary})`,
-                `linear-gradient(to right, transparent, ${t.colors.primary}, transparent)`
-              ],
-            },
-            '&:hover::after, &:hover::before': { transform: 'scaleX(1)' },
-            '&:hover::before': { opacity: ['1', '0'] },
-            '&:hover::after': { opacity: '1' },
-          }
-        }
       }}
     >
       <button
@@ -106,12 +60,70 @@ const Menu = () => {
           cursor: 'pointer',
         }}
       >
-        <span sx={{ ...burgerLine, transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }} />
-        <span sx={{ ...burgerLine, opacity: open ? '0' : '1', marginY: '0.25em' }} />
         <span sx={{ ...burgerLine, transform: open ? 'rotate(-45deg)' : 'rotate(0deg)' }} />
+        <span sx={{ ...burgerLine, opacity: open ? '0' : '1', marginY: '0.25em' }} />
+        <span sx={{ ...burgerLine, transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }} />
       </button>
-
-      <Nav />
+      <div
+        sx={{
+          display: ['block', 'flex'],
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          textAlign: 'right',
+          paddingX: [3, 0],
+          backgroundColor: ['dark', 'transparent'],
+          borderLeft: [t => `5px solid ${t.colors.primary}`, 0],
+          transform: [open ? 'translate(-75vw)' : 'translate(0vw)', 'none'],
+          boxShadow: [open ? '-1px 0 5px #000' : 'none', 'none'],
+          transition: 'ease-in-out 0.2s',
+          position: ['absolute', 'static'],
+          height: ['100vh', 'initial'],
+          width: ['75vw', 'initial'],
+          top: '0',
+          right: '-75vw',
+          overflow: ['auto', 'initial'],
+          'nav': {
+            display: 'flex',
+            flexDirection: ['column', 'row'],
+            alignItems: ['flex-end', 'center'],
+            justifyContent: 'space-between',
+            margin: [0, 2],
+            paddingTop: [5, 0],
+            paddingBottom: [3, 0],
+            fontSize: 2,
+            textAlign: ['right', 'center'],
+            'ul': { margin: ['initial', 0] },
+            'li': {
+              display: ['initial', 'inline-block'],
+            },
+            'li > a': {
+              textDecoration: 'none',
+              marginX: ['initial', 1, 2],
+              '&::after, &::before': {
+                display: 'block',
+                content: '""',
+                height: '2px',
+                width: '100%',
+                opacity: '0',
+                transform: 'scaleX(0)',
+                transformOrigin: ['left', 'center'],
+                transition: 'ease-out 0.5s',
+                backgroundImage: t => [
+                  `linear-gradient(to right, transparent, ${t.colors.primary})`,
+                  `linear-gradient(to right, transparent, ${t.colors.primary}, transparent)`
+                ],
+              },
+              '&:hover::after, &:hover::before': { transform: 'scaleX(1)' },
+              '&:hover::before': { opacity: ['1', '0'] },
+              '&:hover::after': { opacity: '1' },
+            }
+          }
+        }}
+      >
+        <Nav />
+        <ColorMode />
+      </div>
     </div>
   );
 }
