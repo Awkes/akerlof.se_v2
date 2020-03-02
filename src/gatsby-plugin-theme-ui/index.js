@@ -34,5 +34,5 @@ export default {
   borders: {
     darkBorder: '1px solid #555',
   },
-  space: [0, '0.25em', '0.5em', '1em', '2em', '3em']
+  space: [0, '0.25em', '0.5em', '1em', '2em', '3em', '5em', '7em']
 }

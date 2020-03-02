@@ -24,7 +24,6 @@ const Section = ({ children, blank }) => (
         flexDirection: 'column',
         justifyContent: 'space-between',
         minHeight: '100vh',
-        p: ['5em 1em 0 1em', '7em 3em 3em 3em'],
         overflow: 'hidden',
         ...conditionalStyles
       });

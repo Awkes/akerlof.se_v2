@@ -4,6 +4,7 @@ import { Global } from '@emotion/core';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
+import Home from '../components/index/Home';
 import Section from '../components/Section';
 
 const Index = ({
@@ -29,9 +30,7 @@ const Index = ({
         }
       }} />
       <Layout>
-        <Section blank={true}>
-          INNEHÅLL!
-        </Section>
+        <Home />
         <Section>
           INNEHÅLL!
         </Section>

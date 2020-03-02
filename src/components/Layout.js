@@ -29,7 +29,18 @@ const Layout = ({ children }) => (
           '&:hover': { 
             textDecoration: `underline ${theme.colors.primary}`
           }
-        }
+        },
+        'h1,h2': { 
+          fontFamily: theme.fonts.heading, 
+          fontWeight: theme.fontWeights.heading,
+          textTransform: 'uppercase',
+          lineHeight: '1em',
+          marginTop: theme.space[0],
+          marginX: theme.space[0],
+          marginBottom: theme.space[3],
+        },
+        h1: { fontSize: theme.fontSizes[4] },
+        h2: { fontSize: theme.fontSizes[3] }
       })}
     />
     <Header/>
